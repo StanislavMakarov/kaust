@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://ysiScalesBrowse.caption"
+        focusComponent="ysiScalesesTable"
+        messagesPack="com.company.kaust.web.screens.ysiscales">
+    <data readOnly="true">
+        <collection id="ysiScalesesDc"
+                    class="com.company.kaust.entity.YsiScale">
+            <view extends="_local"/>
+            <loader id="ysiScalesesDl">
+                <query>
+                    <![CDATA[select e from kaust_YsiScales e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="ysiScalesesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="ysiScalesesTable"
+                dataLoader="ysiScalesesDl">
+            <properties include=".*"/>
+        </filter>
+        <table id="ysiScalesesTable"
+               width="100%"
+               dataContainer="ysiScalesesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+                <action id="refresh" type="refresh"/>
+            </actions>
+            <columns>
+                <column id="smiles_a"/>
+                <column id="ysi_a"/>
+                <column id="smiles_b"/>
+                <column id="ysi_b"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="ysiScalesesTable.create"/>
+                <button id="editBtn" action="ysiScalesesTable.edit"/>
+                <button id="removeBtn" action="ysiScalesesTable.remove"/>
+                <button id="refreshBtn" action="ysiScalesesTable.refresh"/>
+            </buttonsPanel>
+        </table>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

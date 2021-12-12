@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:ext="http://schemas.haulmont.com/cuba/window-ext.xsd"
+        extends="com/haulmont/cuba/web/app/main/main-screen.xml"
+        messagesPack="com.company.kaust.web.screens.main">
+    <layout expand="hbox">
+        <hbox id="hbox" spacing="true">
+            <button id="part1Btn" height="40" width="100" caption="part 1" invoke="part1run"
+            <button id="part2Btn" height="40" width="100" caption="part 2" invoke="part1run"
+            <button id="part3Btn" height="40" width="100" caption="part 3" invoke="part1run"
+            <button id="part4Btn" height="40" width="100" caption="part 4" invoke="part1run"
+        </hbox>
+    </layout>
+</window>

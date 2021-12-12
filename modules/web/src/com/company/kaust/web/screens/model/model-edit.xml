@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://modelEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.kaust.web.screens.model">
+    <data>
+        <instance id="modelDc"
+                  class="com.company.kaust.entity.Model"
+                  view="view-model">
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="AUTO"
+                width="AUTO"
+                modal="true"
+                forceDialog="true"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="modelDc">
+            <column width="350px">
+                <textField id="nameField" property="name"/>
+                <upload id="fileDescField" fileStoragePutMode="IMMEDIATE"
+                        property="fileDescriptor" showFileName="true"/>
+            </column>
+        </form>
+        <hbox margin="true"
+              spacing="true">
+            <vbox spacing="true">
+                <textArea id="textAreaIn"/>
+                <button id="buttonIn"
+                        caption="Save text in file"
+                        invoke="onButtonInClick"/>
+            </vbox>
+            <vbox spacing="true">
+                <textArea id="textAreaOut"
+                          editable="false"/>
+                <button id="buttonOut"
+                        caption="Show the saved text"
+                        invoke="onButtonOutClick"/>
+            </vbox>
+        </hbox>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+            <button id="importBtn" caption="Import" invoke="driversImport"/>
+        </hbox>
+    </layout>
+</window>

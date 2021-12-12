@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+    <persistence-unit name="kaust" transaction-type="RESOURCE_LOCAL">
+
+        <class>com.company.kaust.entity.Component</class>
+        <class>com.company.kaust.entity.YsiScale</class>
+        <class>com.company.kaust.entity.CompositionElement</class>
+        <class>com.company.kaust.entity.PropertyPrediction</class>
+        <class>com.company.kaust.entity.Family</class>
+        <class>com.company.kaust.entity.FuelDesign</class>
+        <class>com.company.kaust.entity.FuelFamilyConstraint</class>
+        <class>com.company.kaust.entity.Model</class>
+    </persistence-unit>
+</persistence>

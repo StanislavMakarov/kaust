@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://fuelFamilyConstraintEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.kaust.web.screens.fuelfamilyconstraint">
+    <data>
+        <instance id="fuelFamilyConstraintDc"
+                  class="com.company.kaust.entity.FuelFamilyConstraint">
+            <view extends="_local">
+                <property name="fuel" view="_minimal"/>
+                <property name="family" view="_minimal"/>
+            </view>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="AUTO"
+                width="AUTO"
+                modal="true"
+                forceDialog="true"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="fuelFamilyConstraintDc">
+            <column width="350px">
+                <pickerField id="fuelField" property="fuel">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </pickerField>
+                <pickerField id="familyField" property="family">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </pickerField>
+                <textField id="valueField" property="value"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

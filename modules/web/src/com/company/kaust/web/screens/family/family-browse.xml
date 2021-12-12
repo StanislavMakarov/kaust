@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://familyBrowse.caption"
+        focusComponent="familiesTable"
+        messagesPack="com.company.kaust.web.screens.family">
+    <data readOnly="true">
+        <collection id="familiesDc"
+                    class="com.company.kaust.entity.Family">
+            <view extends="_local"/>
+            <loader id="familiesDl">
+                <query>
+                    <![CDATA[select e from kaust_Family e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="familiesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="familiesTable"
+                dataLoader="familiesDl">
+            <properties include=".*"/>
+        </filter>
+        <table id="familiesTable"
+               width="100%"
+               dataContainer="familiesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+                <action id="excel" type="excel"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="members"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="familiesTable.create"/>
+                <button id="editBtn" action="familiesTable.edit"/>
+                <button id="removeBtn" action="familiesTable.remove"/>
+                <button id="excelBtn" action="familiesTable.excel"/>
+            </buttonsPanel>
+        </table>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

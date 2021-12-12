@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://fuelDesignEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.kaust.web.screens.fueldesign">
+    <data>
+        <instance id="fuelDesignDc"
+                  class="com.company.kaust.entity.FuelDesign">
+            <view extends="_local">
+                <property name="constraintElements" view="_minimal">
+                    <property name="smiles"/>
+                    <property name="value"/>
+                </property>
+                <property name="familyConstraints" view="_minimal"/>
+            </view>
+            <loader/>
+            <collection id="constraintElementsDc" property="constraintElements"/>
+            <collection id="familyConstraintsDc" property="familyConstraints"/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="fuelDesignDc">
+            <column width="100px">
+                <textField id="targetRonField" property="targetRon"/>
+                <textField id="targetMonField" property="targetMon"/>
+                <textField id="targetYsiField" property="targetYsi"/>
+                <textField id="numberOfComponentsField" property="numberOfComponents"/>
+            </column>
+        </form>
+        <groupBox id="constraintElementsBox" caption="msg://com.company.kaust.entity/FuelDesign.constraintElements">
+            <table id="constraintElementsTable" dataContainer="constraintElementsDc" width="100%" height="200px">
+                <actions>
+                    <action id="create" type="create"/>
+                    <action id="edit" type="edit"/>
+                    <action id="remove" type="remove"/>
+                </actions>
+                <columns>
+                    <column id="smiles"/>
+                    <column id="value"/>
+                </columns>
+                <buttonsPanel>
+                    <button action="constraintElementsTable.create"/>
+                    <button action="constraintElementsTable.edit"/>
+                    <button action="constraintElementsTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <groupBox id="familyConstraintsBox" caption="msg://com.company.kaust.entity/FuelDesign.familyConstraints">
+            <table id="familyConstraintsTable" dataContainer="familyConstraintsDc" width="100%" height="200px">
+                <actions>
+                    <action id="create" type="create"/>
+                    <action id="edit" type="edit"/>
+                    <action id="remove" type="remove"/>
+                </actions>
+                <columns>
+                    <column id="value"/>
+                </columns>
+                <buttonsPanel>
+                    <button action="familyConstraintsTable.create"/>
+                    <button action="familyConstraintsTable.edit"/>
+                    <button action="familyConstraintsTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

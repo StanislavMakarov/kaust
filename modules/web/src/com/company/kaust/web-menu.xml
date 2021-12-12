@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-kaust" insertBefore="administration" caption="mainMsg://menu_config.application-kaust">
+        <item screen="kaust_ThermoSearch.edit" id="kaust_thermo-search" caption="mainMsg://menu_config.thermo-search"/>
+        <item screen="kaust_PredictInput.browse" caption="mainMsg://menu_config.kaust_PredictInput.browse"/>
+        <menu id="kaust_settings" caption="mainMsg://menu_config.kaust_settings">
+            <item screen="kaust_Component.browse" caption="mainMsg://menu_config.kaust_Component.browse"/>
+            <item screen="kaust_YsiScales.browse" caption="mainMsg://menu_config.kaust_YsiScales.browse"/>
+            <item screen="kaust_CompositionElement.browse"
+                  caption="mainMsg://menu_config.kaust_CompositionElement.browse"/>
+            <item screen="kaust_Family.browse" caption="mainMsg://menu_config.kaust_Family.browse"/>
+        </menu>
+        <item screen="kaust_PropertyPrediction.browse" caption="mainMsg://menu_config.kaust_PropertyPrediction.browse"/>
+        <item screen="kaust_FuelDesign.browse" caption="mainMsg://menu_config.kaust_FuelDesign.browse"/>
+        <item screen="kaust_FuelFamilyConstraint.browse"
+              caption="mainMsg://menu_config.kaust_FuelFamilyConstraint.browse"/>
+        <item screen="kaust_PythonScreen" id="pythontest" caption="mainMsg://menu_config.pythontest"/>
+        <item screen="kaust_ModelLoader" caption="mainMsg://menu_config.kaust_ModelLoader"/>
+        <item screen="kaust_Model.browse" caption="mainMsg://menu_config.kaust_Model.browse"/>
+    </menu>
+</menu-config>

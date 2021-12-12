@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://componentEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.kaust.web.screens.component">
+    <data>
+        <instance id="componentDc"
+                  class="com.company.kaust.entity.Component">
+            <view extends="_local"/>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="AUTO"
+                width="AUTO"
+                modal="true"
+                forceDialog="true"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="componentDc">
+            <column width="350px">
+                <textField id="nameField" property="name"/>
+                <textField id="smilesField" property="smiles"/>
+                <textField id="inchiField" property="inchi"/>
+                <textArea id="descriptorsField" property="descriptors" rows="5"/>
+                <textField id="formulaField" property="formula"/>
+                <textField id="cbs_valueField" property="cbs_value"/>
+                <textField id="g3_valueField" property="g3_value"/>
+                <textField id="g4_valueField" property="g4_value"/>
+                <textField id="g4x_valueField" property="g4x_value"/>
+                <textField id="descriptprsField" property="descriptprs"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

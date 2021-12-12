@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://compositionElementEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.kaust.web.screens.compositionelement">
+    <data>
+        <instance id="compositionElementDc"
+                  class="com.company.kaust.entity.CompositionElement">
+            <view extends="_local"/>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="AUTO"
+                width="AUTO"
+                modal="true"
+                forceDialog="true"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="compositionElementDc">
+            <column width="350px">
+                <textField id="smilesField" property="smiles"/>
+                <textField id="valueField" property="value"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

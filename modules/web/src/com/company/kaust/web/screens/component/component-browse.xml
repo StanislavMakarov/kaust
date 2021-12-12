@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://componentBrowse.caption"
+        focusComponent="componentsTable"
+        messagesPack="com.company.kaust.web.screens.component">
+    <data readOnly="true">
+        <collection id="componentsDc"
+                    class="com.company.kaust.entity.Component">
+            <view extends="_minimal">
+                <property name="smiles"/>
+                <property name="inchi"/>
+                <property name="formula"/>
+                <property name="cbs_value"/>
+                <property name="g3_value"/>
+                <property name="g4_value"/>
+                <property name="g4x_value"/>
+                <property name="descriptprs"/>
+            </view>
+            <loader id="componentsDl">
+                <query>
+                    <![CDATA[select e from kaust_Component e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="componentsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="componentsTable"
+                dataLoader="componentsDl">
+            <properties include=".*"/>
+        </filter>
+        <dataGrid id="componentsTable"
+                  width="100%"
+                  dataContainer="componentsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+                <action id="excel" type="excel"/>
+            </actions>
+            <columns>
+                <column property="name" id="name"/>
+                <column property="smiles" id="smiles"/>
+                <column property="inchi" id="inchi"/>
+                <column property="formula" id="formula"/>
+                <column property="cbs_value" id="cbs_value"/>
+                <column property="g3_value" id="g3_value"/>
+                <column property="g4_value" id="g4_value"/>
+                <column property="g4x_value" id="g4x_value"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="componentsTable.create"/>
+                <button id="editBtn" action="componentsTable.edit"/>
+                <button id="fuelCardsImportBtn" invoke="componentsImport"
+                        caption="mainMsg://Btn.importComponents" stylename="friendly"/>
+                <button id="excelBtn" action="componentsTable.excel" caption="mainMsg://Btn.Export"/>
+                <button id="removeBtn" action="componentsTable.remove"/>
+                <button id="removeAllBtn" invoke="removeAllComponents" caption="mainMsg://Btn.RemoveAll"/>
+            </buttonsPanel>
+        </dataGrid>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

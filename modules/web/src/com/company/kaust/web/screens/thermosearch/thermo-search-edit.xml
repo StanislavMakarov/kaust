@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://thermoSearchEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.kaust.web.screens.thermosearch">
+    <data>
+        <instance id="thermoSearchDc"
+                  class="com.company.kaust.entity.ThermoSearch">
+            <view extends="_local">
+                <property name="name"/>
+                <property name="smiles"/>
+                <property name="inchi"/>
+                <property name="descriptors"/>
+            </view>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="thermoSearchDc">
+            <column width="350px">
+                <textField id="nameField" property="name"/>
+                <textField id="smilesField" property="smiles"/>
+                <textField id="inchiField" property="inchi"/>
+                <textField id="descriptorsField" property="descriptors"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

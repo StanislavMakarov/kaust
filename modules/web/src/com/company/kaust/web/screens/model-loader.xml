@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://modelLoader.caption"
+        messagesPack="com.company.kaust.web.screens">
+    <layout>
+        <vbox>
+            <button id="thermoEstimatorML" invoke="thermoEstimatorML"/>
+            <button id="propertiesPredictionML" invoke="propertiesPredictionML"/>
+            <button id="fuelDesignML" invoke="fuelDesignML"/>
+        </vbox>
+    </layout>
+</window>

@@ -91,7 +91,7 @@ create table KAUST_COMPONENT (
     G3_VALUE double precision,
     G4_VALUE double precision,
     G4X_VALUE double precision,
-    DESCRIPTORS text,
+    DESCRIPTPRS varchar(255),
     --
     primary key (ID)
 )^
@@ -135,3 +135,20 @@ create table KAUST_FUEL_FAMILY_CONSTRAINT (
     primary key (ID)
 )^
 -- end KAUST_FUEL_FAMILY_CONSTRAINT
+-- begin KAUST_MODEL
+create table KAUST_MODEL (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    NAME varchar(255),
+    FILE_DESCRIPTOR_ID uuid,
+    --
+    primary key (ID)
+)^
+-- end KAUST_MODEL

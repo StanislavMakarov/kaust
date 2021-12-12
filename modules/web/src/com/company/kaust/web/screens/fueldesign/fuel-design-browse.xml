@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://fuelDesignBrowse.caption"
+        focusComponent="fuelDesignsTable"
+        messagesPack="com.company.kaust.web.screens.fueldesign">
+    <data readOnly="true">
+        <collection id="fuelDesignsDc"
+                    class="com.company.kaust.entity.FuelDesign">
+            <view extends="_local">
+                <property name="familyConstraints" view="_minimal"/>
+            </view>
+            <loader id="fuelDesignsDl">
+                <query>
+                    <![CDATA[select e from kaust_FuelDesign e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="fuelDesignsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="fuelDesignsTable"
+                dataLoader="fuelDesignsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="fuelDesignsTable"
+                    width="100%"
+                    dataContainer="fuelDesignsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+                <action id="excel" type="excel"/>
+            </actions>
+            <columns>
+                <column id="targetRon"/>
+                <column id="targetMon"/>
+                <column id="targetYsi"/>
+                <column id="numberOfComponents"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="fuelDesignsTable.create"/>
+                <button id="editBtn" action="fuelDesignsTable.edit"/>
+                <button id="removeBtn" action="fuelDesignsTable.remove"/>
+                <button id="excelBtn" action="fuelDesignsTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>
